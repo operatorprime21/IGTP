@@ -7,7 +7,7 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Control variables")]
-    [Tooltip("Camera object")] public GameObject player;
+    [Tooltip("Player object")] public GameObject player;
     [Tooltip("how fast the player moves")] public float moveSpeed;
     [Tooltip("how fast the player rotates")] public float rotateSpeed;
     [Tooltip("jump force")] public float jumpForce;
