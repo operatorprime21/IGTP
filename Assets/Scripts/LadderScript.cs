@@ -14,6 +14,7 @@ public class LadderScript : MonoBehaviour
             {
                 other.transform.position = ladderDest.transform.position;
                 player.playerRB.useGravity = true;
+                player.canRotate = true;
             }
         }
     }

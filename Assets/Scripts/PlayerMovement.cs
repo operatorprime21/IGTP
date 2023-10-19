@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("how fast the player moves")] public float moveSpeed;
     [Tooltip("how fast the player rotates")] public float rotateSpeed;
     [Tooltip("jump force")] public float jumpForce;
+    [Tooltip("can jump variable")] public bool canRotate;
     [Space(10)]
 
     [Header("Movement debug variables")]
@@ -41,7 +42,10 @@ public class PlayerMovement : MonoBehaviour
     private void Inputs()
     {
         WalkInputs();
-        RotateInputs();
+        if(canRotate)
+        {
+            RotateInputs();
+        }
         JumpInputs();
     }
 
@@ -73,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(this.transform.position, transform.TransformDirection(face), dist, ladder))
         {
             playerRB.useGravity = false;
+            canRotate = false;
             return "up";
         }
         else
@@ -98,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void RotateInputs()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             turning = "left";
             if (overloadTurn == "none")
@@ -130,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             turning = "right";
             if (overloadTurn == "none")
@@ -179,12 +184,18 @@ public class PlayerMovement : MonoBehaviour
     }
     private void JumpInputs()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        
+        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.down), 1.1f, floors))
         {
-            if (Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.down), 1.1f, floors))
+            canRotate = true;
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
             }
+        }
+        else
+        {
+            canRotate = false;
         }
     }
     private void Jump()
