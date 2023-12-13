@@ -202,4 +202,10 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRB.AddForce(transform.up * jumpForce);
     }
+
+    //void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawSphere(transform.position, 2.5f);
+    //}A
 }
