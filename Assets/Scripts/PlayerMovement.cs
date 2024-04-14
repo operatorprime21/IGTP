@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         {
             RotateInputs();
         }
-        JumpInputs();
+        //JumpInputs();
     }
 
     private void WalkInputs()
@@ -182,26 +182,26 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
     }
-    private void JumpInputs()
-    {
+    //private void JumpInputs()
+    //{
         
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.down), 1.1f, floors))
-        {
-            canRotate = true;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Jump();
-            }
-        }
-        else
-        {
-            canRotate = false;
-        }
-    }
-    private void Jump()
-    {
-        playerRB.AddForce(transform.up * jumpForce);
-    }
+    //    if (Physics.Raycast(this.transform.position, transform.TransformDirection(Vector3.down), 1.1f, floors))
+    //    {
+    //        canRotate = true;
+    //        if (Input.GetKeyDown(KeyCode.Space))
+    //        {
+    //            Jump();
+    //        }
+    //    }
+    //    else
+    //    {
+    //        canRotate = false;
+    //    }
+    //}
+    //private void Jump()
+    //{
+    //    playerRB.AddForce(transform.up * jumpForce);
+    //}
 
     //void OnDrawGizmosSelected()
     //{
