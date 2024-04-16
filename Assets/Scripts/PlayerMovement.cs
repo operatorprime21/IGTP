@@ -74,12 +74,12 @@ public class PlayerMovement : MonoBehaviour
         {
             return "none";
         }
-        if (Physics.Raycast(this.transform.position, transform.TransformDirection(face), dist, ladder))
-        {
-            playerRB.useGravity = false;
-            canRotate = false;
-            return "up";
-        }
+        //if (Physics.Raycast(this.transform.position, transform.TransformDirection(face), dist, ladder))
+        //{
+        //    playerRB.useGravity = false;
+        //    canRotate = false;
+        //    return "up";
+        //}
         else
         {
             playerRB.useGravity = true;

@@ -8,6 +8,9 @@ public class InteractManager : MonoBehaviour
     private DialogueScript dialogue;
     public InteractManager manager;
     public GameObject interactWith;
+
+    public CamSwitcher camSwitch;
+
     private void Start()
     {
         dialogue = dialogueCanvas.GetComponent<DialogueScript>();
@@ -20,7 +23,7 @@ public class InteractManager : MonoBehaviour
             if(interactWith != null)
             {
                 interactWith.GetComponent<InteractionBase>().Interact();
-                
+                camSwitch.CamSwitch();
             }
         }
     }

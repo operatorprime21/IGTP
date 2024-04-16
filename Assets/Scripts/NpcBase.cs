@@ -19,13 +19,13 @@ public class NpcBase : InteractionBase
     {
         if(Vector3.Distance(transform.position, player.transform.position)<5f)
         {
-            this.transform.LookAt(player.transform.position);
+            this.transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
         }
     }
 
     public override void Interact()
     {
         base.Interact();
-        GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
+        //GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
     }
 }
