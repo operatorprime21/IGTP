@@ -5,16 +5,14 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
-    public CinemachineVirtualCamera cam_iso;
-    public CinemachineVirtualCamera cam_pov;
-    public Camera cam;
+    public GameObject cam_pov;
+
     public int camMode = 0;
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.F))
         {
-            
             if(camMode == 0)
             {
                 SwitchCamMode(1);
@@ -28,18 +26,14 @@ public class GameManager : MonoBehaviour
 
     void SwitchCamMode(int mode)
     {
-        if(mode == 0)
+        if(mode == 1)
         {
-            cam_iso.Priority = 0;
-            cam.orthographic = false;
-            cam_pov.Priority = 1;
+            cam_pov.SetActive(true);
             camMode = 1;
         }
         else
         {
-            cam_iso.Priority = 1;
-            cam.orthographic = true;
-            cam_pov.Priority = 0;
+            cam_pov.SetActive(false);
             camMode = 0;
         }
         
