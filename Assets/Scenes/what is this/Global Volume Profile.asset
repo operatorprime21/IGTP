@@ -543,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   intensity:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &5656326575701808000
 MonoBehaviour:
@@ -575,11 +575,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   type:
-    m_OverrideState: 0
-    m_Value: 2
+    m_OverrideState: 1
+    m_Value: 5
   intensity:
-    m_OverrideState: 0
-    m_Value: 0.957
+    m_OverrideState: 1
+    m_Value: 0.595
   response:
     m_OverrideState: 0
     m_Value: 0.3
