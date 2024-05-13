@@ -26,6 +26,6 @@ public class NpcBase : InteractionBase
     public override void Interact()
     {
         base.Interact();
-        //GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
+        GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
     }
 }

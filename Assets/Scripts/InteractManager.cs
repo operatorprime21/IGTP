@@ -23,9 +23,14 @@ public class InteractManager : MonoBehaviour
             if(interactWith != null)
             {
                 interactWith.GetComponent<InteractionBase>().Interact();
-                camSwitch.CamSwitch();
+                //camSwitch.CamSwitch();
             }
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            camSwitch.CamSwitch();
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
