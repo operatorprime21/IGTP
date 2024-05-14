@@ -20,13 +20,13 @@ public class InteractManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(interactWith != null)
+            if(interactWith != null && camSwitch.mode == 0)
             {
                 interactWith.GetComponent<InteractionBase>().Interact();
                 //camSwitch.CamSwitch();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && interactWith == null)
         {
             camSwitch.CamSwitch();
         }

@@ -28,4 +28,9 @@ public class NpcBase : InteractionBase
         base.Interact();
         GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
     }
+
+    public override void EndDialogueEvent()
+    {
+
+    }
 }

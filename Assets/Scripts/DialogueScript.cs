@@ -15,6 +15,8 @@ public class DialogueScript : MonoBehaviour
     private bool active;
     public bool typing;
 
+    public GameObject optionBox;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class DialogueScript : MonoBehaviour
                     boxAnim.Play("TextBoxDown");
                     InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
                     manager.interactWith = null;
+                    manager.interactWith.GetComponent<InteractionBase>().EndDialogueEvent();
                 }
             }
             else
@@ -89,5 +92,15 @@ public class DialogueScript : MonoBehaviour
             yield return new WaitForSeconds(textDelayTime);
         }
         typing = false;
+    }
+
+    public void OptionYes()
+    {
+
+    }
+
+    public void OptionNo()
+    {
+        optionBox.SetActive(false);
     }
 }

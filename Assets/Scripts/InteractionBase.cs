@@ -7,6 +7,7 @@ public class InteractionBase : MonoBehaviour
     // Start is called before the first frame update
     public string[] lines;
     public InteractManager manager;
+
     void Start()
     {
         
@@ -23,6 +24,12 @@ public class InteractionBase : MonoBehaviour
     }
 
     public virtual void EndInteract()
+    {
+
+    }
+
+
+    public virtual void EndDialogueEvent()
     {
 
     }
