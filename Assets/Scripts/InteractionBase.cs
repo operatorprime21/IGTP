@@ -7,7 +7,7 @@ public class InteractionBase : MonoBehaviour
     // Start is called before the first frame update
     public string[] lines;
     public InteractManager manager;
-
+    public DialogueScript dialogueScript;
     void Start()
     {
         
@@ -30,6 +30,16 @@ public class InteractionBase : MonoBehaviour
 
 
     public virtual void EndDialogueEvent()
+    {
+
+    }
+
+    public virtual void OptionYes()
+    {
+
+    }
+
+    public virtual void OptionNo()
     {
 
     }

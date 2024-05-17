@@ -16,7 +16,7 @@ public class DialogueScript : MonoBehaviour
     public bool typing;
 
     public GameObject optionBox;
-
+    public InteractionBase interact;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,10 +54,10 @@ public class DialogueScript : MonoBehaviour
                 {
                     StopAllCoroutines();
                     typing = false;
-                    _text.text = string.Empty;
-                    boxAnim.Play("TextBoxDown");
+                    _text.text = lines[lineIndex];
+                    //boxAnim.Play("TextBoxDown");
                     InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
-                    manager.interactWith = null;
+                    //manager.interactWith = null;
                     manager.interactWith.GetComponent<InteractionBase>().EndDialogueEvent();
                 }
             }
@@ -66,6 +66,9 @@ public class DialogueScript : MonoBehaviour
                 StopAllCoroutines();
                 typing = false;
                 _text.text = lines[lineIndex];
+                //InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+                //manager.interactWith = null;
+                //manager.interactWith.GetComponent<InteractionBase>().EndDialogueEvent();
             }
         }
     }
@@ -96,11 +99,17 @@ public class DialogueScript : MonoBehaviour
 
     public void OptionYes()
     {
-
+        interact.OptionYes();
+        OptionNo();
     }
 
     public void OptionNo()
     {
+        interact.OptionNo();
         optionBox.SetActive(false);
+        boxAnim.Play("TextBoxDown");
+        _text.text = string.Empty;
+        //InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+        //manager.interactWith = null;
     }
 }

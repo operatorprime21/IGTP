@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class ObjectBase : InteractionBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject options;
+    public GameObject parent;
+
+    public override void EndDialogueEvent()
     {
-        
+        options.SetActive(true);
+        //Debug.Log("called");
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OptionYes()
     {
-        
+        parent.SetActive(false);
     }
+
+    public override void OptionNo()
+    {
+        //options.SetActive(false);
+
+    }
+    void Start()
+    {
+        //player = GameObject.FindGameObjectWithTag("Player");
+        manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+    }
+    public override void Interact()
+    {
+        base.Interact();
+        GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
+    }
+
 }

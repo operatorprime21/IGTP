@@ -38,7 +38,9 @@ public class InteractManager : MonoBehaviour
         {
             interactWith = other.gameObject;
             dialogueCanvas.SetActive(true);
+            other.GetComponent<InteractionBase>().dialogueScript = dialogue;
             dialogue.lines = other.GetComponent<InteractionBase>().lines;
+            dialogue.interact = other.GetComponent<InteractionBase>();
         }
     }
 
@@ -48,7 +50,9 @@ public class InteractManager : MonoBehaviour
         {
             interactWith = null;
             dialogueCanvas.SetActive(false);
-            dialogueCanvas.GetComponent<DialogueScript>().lines = null;
+            other.GetComponent<InteractionBase>().dialogueScript = null;
+            dialogue.lines = null;
+            dialogue.interact = null;
         }
     }
 }

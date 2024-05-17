@@ -31,6 +31,6 @@ public class NpcBase : InteractionBase
 
     public override void EndDialogueEvent()
     {
-
+        dialogueScript.OptionNo();
     }
 }
