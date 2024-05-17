@@ -595,6 +595,7 @@ MonoBehaviour:
   - hello world
   - I desire release from this mortal coil
   manager: {fileID: 0}
+  dialogueScript: {fileID: 0}
   flags: {fileID: 0}
 --- !u!1 &84810762
 GameObject:
@@ -4822,7 +4823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &682987833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5940,6 +5941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines: []
   manager: {fileID: 0}
+  dialogueScript: {fileID: 0}
   roomFrom: {fileID: 1044662486}
   roomTo: {fileID: 487355760}
   transitionSpeed: 0
@@ -10370,6 +10372,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 513bbd0a18b91064f9ffd0057fc4f62b, type: 3}
+--- !u!1 &1362535318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5572521513849739940, guid: 0e629caf3526db948b51c87a53c505f9, type: 3}
+  m_PrefabInstance: {fileID: 6773594745475475886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1372308900
 GameObject:
   m_ObjectHideFlags: 0
@@ -10983,6 +10990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines: []
   manager: {fileID: 0}
+  dialogueScript: {fileID: 0}
 --- !u!1 &1456481766
 GameObject:
   m_ObjectHideFlags: 0
@@ -12158,7 +12166,8 @@ MonoBehaviour:
   lines: []
   textDelayTime: 0.03
   typing: 0
-  optionBox: {fileID: 0}
+  optionBox: {fileID: 682987832}
+  interact: {fileID: 0}
 --- !u!1 &1646109202
 GameObject:
   m_ObjectHideFlags: 0
@@ -12380,14 +12389,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1655420729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a06931d424721414384f509e1e2fd764, type: 3}
+  m_Script: {fileID: 11500000, guid: d7d42e85298e99946999d50c1aae444f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - This is my old camera
-  - take it?
-  manager: {fileID: 0}
-  flags: {fileID: 0}
+  - This is my camera
+  - Take it?
+  manager: {fileID: 677521516}
+  dialogueScript: {fileID: 1631105519}
+  options: {fileID: 682987832}
+  parent: {fileID: 1362535318}
 --- !u!1 &1659411465
 GameObject:
   m_ObjectHideFlags: 0
@@ -12763,6 +12774,7 @@ MonoBehaviour:
   - welcome to the rice fields
   - motherfucker
   manager: {fileID: 0}
+  dialogueScript: {fileID: 0}
   flags: {fileID: 0}
 --- !u!136 &1718539444
 CapsuleCollider:
@@ -14389,6 +14401,7 @@ MonoBehaviour:
   - freddy fazbear
   - skibidi toilet
   manager: {fileID: 0}
+  dialogueScript: {fileID: 0}
   flags: {fileID: 0}
 --- !u!136 &1952247026
 CapsuleCollider:
@@ -15295,6 +15308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines: []
   manager: {fileID: 0}
+  dialogueScript: {fileID: 0}
   roomFrom: {fileID: 487355760}
   roomTo: {fileID: 1044662486}
   transitionSpeed: 0
