@@ -18,9 +18,9 @@ public class InteractionBase : MonoBehaviour
     }
 
     // Update is called once per frame
-    public virtual void Interact()
+    public void Interact()
     {
-
+        dialogueScript.DialogueInputs();
     }
 
     public virtual void EndInteract()

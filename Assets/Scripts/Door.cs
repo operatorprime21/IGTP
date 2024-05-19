@@ -12,7 +12,7 @@ public class Door : InteractionBase
 
     public GameObject player;
 
-    public override void Interact()
+    public void ChangeRoom()
     {
         base.Interact();
         roomTo.SetActive(true);

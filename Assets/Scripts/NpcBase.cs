@@ -23,12 +23,6 @@ public class NpcBase : InteractionBase
         }
     }
 
-    public override void Interact()
-    {
-        base.Interact();
-        GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
-    }
-
     public override void EndDialogueEvent()
     {
         dialogueScript.OptionNo();

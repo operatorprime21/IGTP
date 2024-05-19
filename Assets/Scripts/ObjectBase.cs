@@ -28,10 +28,5 @@ public class ObjectBase : InteractionBase
         //player = GameObject.FindGameObjectWithTag("Player");
         manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
     }
-    public override void Interact()
-    {
-        base.Interact();
-        GameObject.Find("DialogueBox").GetComponent<DialogueScript>().DialogueInputs();
-    }
 
 }
