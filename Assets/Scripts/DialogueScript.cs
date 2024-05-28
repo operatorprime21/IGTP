@@ -109,7 +109,7 @@ public class DialogueScript : MonoBehaviour
         optionBox.SetActive(false);
         boxAnim.Play("TextBoxDown");
         _text.text = string.Empty;
-        //InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
-        //manager.interactWith = null;
+        InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+        manager.interactWith = null;
     }
 }

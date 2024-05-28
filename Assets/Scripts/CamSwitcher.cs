@@ -9,6 +9,10 @@ public class CamSwitcher : MonoBehaviour
 
     public int mode;
     public GameManager manager;
+    public GameObject player;
+
+    public POVCamAnims povAnims;
+
     void Start()
     {
         mode = 0;
@@ -31,13 +35,13 @@ public class CamSwitcher : MonoBehaviour
             manager.ToggleVisible(manager.povOnly, manager.isoOnly);
             iso.SetActive(false);
             pov.SetActive(true);
+            povAnims.PlayEntry();
+            player.GetComponent<PlayerMovement>().enabled = false;
         }
         else
         {
+            povAnims.PlayExit();
             mode = 0;
-            manager.ToggleVisible(manager.isoOnly, manager.povOnly);
-            iso.SetActive(true);
-            pov.SetActive(false);
         }
     }
 }

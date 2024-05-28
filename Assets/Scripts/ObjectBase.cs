@@ -9,7 +9,14 @@ public class ObjectBase : InteractionBase
 
     public override void EndDialogueEvent()
     {
-        options.SetActive(true);
+        if(options != null)
+        {
+            options.SetActive(true);
+        }
+        else
+        {
+            dialogueScript.OptionNo();
+        }
         //Debug.Log("called");
     }
 
@@ -27,6 +34,10 @@ public class ObjectBase : InteractionBase
     {
         //player = GameObject.FindGameObjectWithTag("Player");
         manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+    }
+    public override void Interact()
+    {
+        dialogueScript.DialogueInputs();
     }
 
 }

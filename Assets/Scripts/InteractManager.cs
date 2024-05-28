@@ -10,7 +10,7 @@ public class InteractManager : MonoBehaviour
     public GameObject interactWith;
 
     public CamSwitcher camSwitch;
-
+   
     private void Start()
     {
         dialogue = dialogueCanvas.GetComponent<DialogueScript>();

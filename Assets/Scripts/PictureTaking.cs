@@ -7,12 +7,14 @@ using System.IO;
 public class PictureTaking : MonoBehaviour
 {
     public Image showPicture;
+    public GameObject camUI;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(TakePicture());
+            camUI.SetActive(false);
         }
     }
     private IEnumerator TakePicture()
@@ -29,5 +31,6 @@ public class PictureTaking : MonoBehaviour
         Sprite picSprite = Sprite.Create(newPic, new Rect(0, 0, newPic.width, newPic.height), new Vector2(0.5f, 0.5f));
         showPicture.enabled = true;
         showPicture.sprite = picSprite;
+        camUI.SetActive(true);
     }
 }

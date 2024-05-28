@@ -27,4 +27,9 @@ public class NpcBase : InteractionBase
     {
         dialogueScript.OptionNo();
     }
+
+    public override void Interact()
+    {
+        dialogueScript.DialogueInputs();
+    }
 }
