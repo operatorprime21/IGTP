@@ -7,7 +7,9 @@ public class NpcBase : InteractionBase
     private GameObject player;
 
     public GameObject flags;
-    
+    public GameObject npcSprite;
+    public GameObject playerSprite;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -26,10 +28,14 @@ public class NpcBase : InteractionBase
     public override void EndDialogueEvent()
     {
         dialogueScript.OptionNo();
+        npcSprite.SetActive(false);
+        playerSprite.SetActive(true);
     }
 
     public override void Interact()
     {
         dialogueScript.DialogueInputs();
+        npcSprite.SetActive(true);
+        playerSprite.SetActive(false);
     }
 }
