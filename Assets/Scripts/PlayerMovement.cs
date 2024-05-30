@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("how fast the player rotates")] public float rotateSpeed;
     [Tooltip("jump force")] public float jumpForce;
     [Tooltip("can jump variable")] public bool canRotate;
+    [Tooltip("can jump variable")] public PlayerAnims anims;
     [Space(10)]
 
     [Header("Movement debug variables")]
@@ -46,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
         {
             RotateInputs();
         }
+        if(moving == "none" && turning == "none")
+        {
+            anims.PlayIdle();
+        }
         //JumpInputs();
     }
 
@@ -74,12 +79,6 @@ public class PlayerMovement : MonoBehaviour
         {
             return "none";
         }
-        //if (Physics.Raycast(this.transform.position, transform.TransformDirection(face), dist, ladder))
-        //{
-        //    playerRB.useGravity = false;
-        //    canRotate = false;
-        //    return "up";
-        //}
         else
         {
             playerRB.useGravity = true;
@@ -92,12 +91,11 @@ public class PlayerMovement : MonoBehaviour
         {
             case "forwards":
                 player.transform.position += player.transform.forward * moveSpeed;
+                anims.PlayWalk();
                 break;
             case "backwards":
                 player.transform.position -= player.transform.forward * moveSpeed;
-                break;
-            case "up":
-                player.transform.position += player.transform.up * moveSpeed;
+                anims.PlayWalk();
                 break;
         }
     }
@@ -174,11 +172,11 @@ public class PlayerMovement : MonoBehaviour
         {
             case "left":
                 player.transform.Rotate(0f, -Input.GetAxis("Horizontal") * -rotateSpeed, 0f);
+                anims.PlayWalk();
                 break;
             case "right":
                 player.transform.Rotate(0f, Input.GetAxis("Horizontal") * rotateSpeed, 0f);
-                break;
-            case "none":
+                anims.PlayWalk();
                 break;
         }
     }

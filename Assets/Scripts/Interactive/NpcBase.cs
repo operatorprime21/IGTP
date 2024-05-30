@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NpcBase : InteractionBase
 {
     private GameObject player;
 
     public GameObject flags;
-    public GameObject npcSprite;
-    public GameObject playerSprite;
-
+    public Sprite npcSprite;
+    public Sprite playerSprite;
+    public Image sprite;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -27,15 +28,22 @@ public class NpcBase : InteractionBase
 
     public override void EndDialogueEvent()
     {
+        //npcSprite.SetActive(false);
+        //playerSprite.SetActive(true);
+        sprite.sprite = playerSprite;
         dialogueScript.OptionNo();
-        npcSprite.SetActive(false);
-        playerSprite.SetActive(true);
     }
 
     public override void Interact()
     {
+        sprite.sprite = npcSprite;
         dialogueScript.DialogueInputs();
-        npcSprite.SetActive(true);
-        playerSprite.SetActive(false);
+        //npcSprite.SetActive(true);
+        //playerSprite.SetActive(false);
+    }
+
+    public override void OptionNo()
+    {
+        
     }
 }

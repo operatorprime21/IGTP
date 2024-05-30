@@ -9,6 +9,7 @@ public class ObjectBase : InteractionBase
 
     public override void EndDialogueEvent()
     {
+        
         if(options != null)
         {
             options.SetActive(true);
@@ -17,7 +18,6 @@ public class ObjectBase : InteractionBase
         {
             dialogueScript.OptionNo();
         }
-        //Debug.Log("called");
     }
 
     public override void OptionYes()
