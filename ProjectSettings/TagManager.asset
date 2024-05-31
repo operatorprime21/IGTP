@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - wall
-  - ladder
+  - item
   - floor
   - interactable
   - 

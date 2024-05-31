@@ -13,6 +13,7 @@ public class CamSwitcher : MonoBehaviour
     public GameObject playerModel;
 
     public POVCamAnims povAnims;
+    public POVCamScripts povScripts;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class CamSwitcher : MonoBehaviour
             playerModel.SetActive(false);
             pov.SetActive(true);
             povAnims.PlayEntry();
+            povScripts.Defaults();
             player.GetComponent<PlayerMovement>().enabled = false;
         }
         else
