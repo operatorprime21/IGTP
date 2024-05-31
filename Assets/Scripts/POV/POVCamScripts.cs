@@ -62,9 +62,6 @@ public class POVCamScripts : MonoBehaviour
             }
             else testUI.SetActive(false);
         }
-
-
-        
     }
 
     private void ShiftingInputs()
