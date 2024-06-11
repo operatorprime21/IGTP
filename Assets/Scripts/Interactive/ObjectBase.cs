@@ -7,6 +7,7 @@ public class ObjectBase : InteractionBase
     public GameObject options;
     public GameObject parent;
 
+    public Flag data;
     public override void EndDialogueEvent()
     {
         

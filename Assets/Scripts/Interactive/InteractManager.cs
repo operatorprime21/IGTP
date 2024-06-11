@@ -10,6 +10,8 @@ public class InteractManager : MonoBehaviour
     public GameObject interactWith;
 
     public CamSwitcher camSwitch;
+
+    public GameObject album;
    
     private void Start()
     {

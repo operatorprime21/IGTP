@@ -26,6 +26,7 @@ public class POVCamScripts : MonoBehaviour
     public GameObject testUI;
 
     public Image showPicture;
+    public Album album;
     public GameObject camUI;
     public ObjectBase obj;
 
@@ -161,6 +162,7 @@ public class POVCamScripts : MonoBehaviour
 
     private IEnumerator TakePicture()
     {
+        album.CreatePage();
         yield return new WaitForEndOfFrame();
         Texture2D pic = ScreenCapture.CaptureScreenshotAsTexture();
 

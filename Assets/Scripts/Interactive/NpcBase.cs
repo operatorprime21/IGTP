@@ -7,7 +7,8 @@ public class NpcBase : InteractionBase
 {
     private GameObject player;
 
-    public GameObject flags;
+    public List<List<string>> flags = new List<List<string>>();
+
     public Sprite npcSprite;
     public Sprite playerSprite;
     public Image sprite;
