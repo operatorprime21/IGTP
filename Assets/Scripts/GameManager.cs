@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> povOnly = new List<GameObject>();
     public List<GameObject> isoOnly = new List<GameObject>();
 
+    public List<Flag> flags = new List<Flag>();
+
     public void ToggleVisible(List<GameObject> on, List<GameObject> off)
     {
         foreach(GameObject obj in on)

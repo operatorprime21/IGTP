@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class NpcBase : InteractionBase
 {
     private GameObject player;
+    public GameObject playerHead;
+    public GameObject head;
 
     public List<List<string>> flags = new List<List<string>>();
 
@@ -21,10 +23,14 @@ public class NpcBase : InteractionBase
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position)<5f)
+        Vector3 dir = (playerHead.transform.position - head.transform.position).normalized;
+        float angle = Vector3.Angle(dir, this.transform.forward);
+        float dist = Vector3.Distance(head.transform.position, playerHead.transform.position);
+        if (Mathf.Abs(angle) <= 60 && dist <= 10f)
         {
-            this.transform.LookAt(new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z));
+            head.transform.LookAt(playerHead.transform.position);
         }
+        else head.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
     public override void EndDialogueEvent()
