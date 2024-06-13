@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c2793de2f53f414fbd1c3bea10ba657, type: 3}
+  m_Name: Loop0
+  m_EditorClassIdentifier: 
+  flags:
+  - conversation 1
+  - pick up camera
+  - random picture
+  - random picture
+  - random picture
+  - end
+  npcData:
+  - {fileID: 11400000, guid: 68bc51c784ed4394d8d1a52f211ff855, type: 2}

@@ -90,11 +90,11 @@ public class PlayerMovement : MonoBehaviour
         switch (moving)
         {
             case "forwards":
-                player.transform.position += player.transform.forward * moveSpeed;
+                player.transform.position += player.transform.forward * moveSpeed * Time.deltaTime;
                 anims.PlayWalk();
                 break;
             case "backwards":
-                player.transform.position -= player.transform.forward * moveSpeed;
+                player.transform.position -= player.transform.forward * moveSpeed * Time.deltaTime;
                 anims.PlayWalk();
                 break;
         }
@@ -171,14 +171,21 @@ public class PlayerMovement : MonoBehaviour
         switch (turning)
         {
             case "left":
-                player.transform.Rotate(0f, -Input.GetAxis("Horizontal") * -rotateSpeed, 0f);
+                player.transform.Rotate(0f, -Input.GetAxis("Horizontal") * -rotateSpeed * Time.deltaTime, 0f);
                 anims.PlayWalk();
                 break;
             case "right":
-                player.transform.Rotate(0f, Input.GetAxis("Horizontal") * rotateSpeed, 0f);
+                player.transform.Rotate(0f, Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime, 0f);
                 anims.PlayWalk();
                 break;
         }
+    }
+
+    void OnDisable()
+    {
+        moving = "none";
+        turning = "none";
+        anims.PlayIdle();
     }
     //private void JumpInputs()
     //{

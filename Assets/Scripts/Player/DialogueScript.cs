@@ -10,7 +10,7 @@ public class DialogueScript : MonoBehaviour
     public float textDelayTime;
 
     private Animator boxAnim;
-    private int lineIndex = 0;
+    public int lineIndex = 0;
     private GameObject player;
     private bool active;
     public bool typing;
@@ -123,6 +123,6 @@ public class DialogueScript : MonoBehaviour
         boxAnim.Play("TextBoxDown");
         _text.text = string.Empty;
         InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
-        manager.interactWith = null;
+        //manager.interactWith = null;
     }
 }

@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class PictureData : MonoBehaviour
 {
-    public string[] lines;
+    public string[] inspectLines;
+    public string[] npcLines;
+    public Flag flag;
 }

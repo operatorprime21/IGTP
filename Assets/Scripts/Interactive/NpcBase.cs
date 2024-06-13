@@ -9,15 +9,25 @@ public class NpcBase : InteractionBase
     public GameObject playerHead;
     public GameObject head;
 
-    public List<List<string>> flags = new List<List<string>>();
+    public GameManager gameManager;
+    public Flag flag;
 
     public Sprite npcSprite;
     public Sprite playerSprite;
     public Image sprite;
+
+    public Album album;
+
+    public enum State { talking, tasking}
+    public State state;
+    
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+        album = GameObject.Find("Album").GetComponent<Album>();
+        flag = this.gameObject.GetComponent<Flag>();
+
     }
 
     // Update is called once per frame
@@ -40,10 +50,28 @@ public class NpcBase : InteractionBase
 
     public override void EndDialogueEvent()
     {
-        //npcSprite.SetActive(false);
-        //playerSprite.SetActive(true);
-        sprite.sprite = playerSprite;
-        dialogueScript.OptionNo();
+        //
+
+        //dialogueScript.lineIndex = 0;
+        switch (state)
+        {
+            case State.talking:
+                sprite.sprite = playerSprite;
+                dialogueScript.OptionNo();
+                gameManager.ProgressFlag(flag);
+                break;
+            case State.tasking:
+                if (album.canvasGroup.alpha == 0)
+                {
+                    Opacity(1);
+                }
+                else
+                {
+                    Opacity(0);
+                    dialogueScript.OptionNo();
+                }
+                break;
+        }
     }
 
     public override void Interact()
@@ -57,5 +85,10 @@ public class NpcBase : InteractionBase
     public override void OptionNo()
     {
         
+    }
+
+    public void Opacity(int i)
+    {
+        album.Opacity(i);
     }
 }

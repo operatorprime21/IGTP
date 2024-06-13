@@ -11,6 +11,7 @@ public class CamSwitcher : MonoBehaviour
     public GameManager manager;
     public GameObject player;
     public GameObject playerModel;
+    public InteractManager interactManager;
 
     public POVCamAnims povAnims;
     public POVCamScripts povScripts;
@@ -26,7 +27,10 @@ public class CamSwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CamSwitch();
+        }
     }
 
     public void CamSwitch()
@@ -41,6 +45,7 @@ public class CamSwitcher : MonoBehaviour
             povAnims.PlayEntry();
             povScripts.Defaults();
             player.GetComponent<PlayerMovement>().enabled = false;
+            interactManager.enabled = false;
         }
         else
         {
@@ -52,6 +57,7 @@ public class CamSwitcher : MonoBehaviour
     public void ExitEvent()
     {
         manager.ToggleVisible(manager.isoOnly, manager.povOnly);
+        interactManager.enabled = true;
         pov.SetActive(false);
         iso.SetActive(true);
         player.GetComponent<PlayerMovement>().enabled = true;

@@ -6,7 +6,7 @@ public class InteractManager : MonoBehaviour
 {
     public GameObject dialogueCanvas;
     private DialogueScript dialogue;
-    public InteractManager manager;
+    public GameManager manager;
     public GameObject interactWith;
 
     public CamSwitcher camSwitch;
@@ -28,10 +28,7 @@ public class InteractManager : MonoBehaviour
                 //camSwitch.CamSwitch();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q) && interactWith == null)
-        {
-            camSwitch.CamSwitch();
-        }
+        
 
     }
     private void OnTriggerEnter(Collider other)

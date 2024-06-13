@@ -109,10 +109,10 @@ public class POVCamScripts : MonoBehaviour
         switch (moving)
         {
             case "up":
-                this.transform.position += this.transform.up * moveSpeed;
+                this.transform.position += this.transform.up * moveSpeed * Time.deltaTime;
                 break;
             case "down":
-                this.transform.position -= this.transform.up * moveSpeed;
+                this.transform.position -= this.transform.up * moveSpeed * Time.deltaTime;
                 break;
         }
     }
@@ -127,14 +127,14 @@ public class POVCamScripts : MonoBehaviour
         {
             if(baseZoom - vcm.m_Lens.FieldOfView <= zoomLimit)
             {
-                vcm.m_Lens.FieldOfView -= Input.mouseScrollDelta.y * scrollSpeed;
+                vcm.m_Lens.FieldOfView -= Input.mouseScrollDelta.y * scrollSpeed *Time.deltaTime;
             }
         }
         else if(Input.mouseScrollDelta.y < 0)
         {
             if (vcm.m_Lens.FieldOfView - baseZoom <= zoomLimit)
             {
-                vcm.m_Lens.FieldOfView -= Input.mouseScrollDelta.y * scrollSpeed;
+                vcm.m_Lens.FieldOfView -= Input.mouseScrollDelta.y * scrollSpeed * Time.deltaTime;
             }
         }
     }
@@ -171,6 +171,10 @@ public class POVCamScripts : MonoBehaviour
     private IEnumerator TakePicture()
     {
         album.CreatePage();
+        if (ItemInPictureCheck())
+        {
+            RecordPicture();
+        }
         yield return new WaitForEndOfFrame();
         Texture2D pic = ScreenCapture.CaptureScreenshotAsTexture();
 
@@ -180,18 +184,17 @@ public class POVCamScripts : MonoBehaviour
 
         Destroy(pic);
 
-        Sprite picSprite = Sprite.Create(newPic, new Rect(0, 0, newPic.width, newPic.height), new Vector2(0.5f, 0.5f));
+        Sprite picSprite = Sprite.Create(newPic, new Rect((newPic.width-newPic.height)/2, 0, newPic.height, newPic.height), new Vector2(0.5f, 0.5f));
         showPicture.enabled = true;
         showPicture.sprite = picSprite;
         camUI.SetActive(true);
-        if (ItemInPictureCheck() == true)
-        {
-            RecordPicture();
-        }
+        
     }
 
     private void RecordPicture()
     {
-        album.curPicture.GetComponent<PictureData>().lines = obj.lines;
+        album.curPicture.GetComponent<PictureData>().inspectLines = obj.lines;
+        album.curPicture.GetComponent<PictureData>().npcLines = obj.npcLines;
+        album.curPicture.GetComponent<PictureData>().flag = obj.data;
     }
 }

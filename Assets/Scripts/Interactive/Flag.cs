@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Flag : MonoBehaviour
 {
-    public string[] npcLines;
-    
+    public string flag;
+    public bool used = false;
 }

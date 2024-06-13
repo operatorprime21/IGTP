@@ -7,7 +7,14 @@ public class ObjectBase : InteractionBase
     public GameObject options;
     public GameObject parent;
 
+    public string[] npcLines;
     public Flag data;
+
+    void Start()
+    {
+        data = this.gameObject.GetComponent<Flag>();
+        manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+    }
     public override void EndDialogueEvent()
     {
         
@@ -24,17 +31,13 @@ public class ObjectBase : InteractionBase
     public override void OptionYes()
     {
         parent.SetActive(false);
+        manager.manager.ProgressFlag(data);
     }
 
     public override void OptionNo()
     {
         //options.SetActive(false);
 
-    }
-    void Start()
-    {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
     }
     public override void Interact()
     {
