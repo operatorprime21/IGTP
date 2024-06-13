@@ -58,7 +58,17 @@ public class DialogueScript : MonoBehaviour
                     //boxAnim.Play("TextBoxDown");
                     InteractManager manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
                     //manager.interactWith = null;
-                    manager.interactWith.GetComponent<InteractionBase>().EndDialogueEvent();
+                    if (manager.interactWith != null)
+                    {
+                        manager.interactWith.GetComponent<InteractionBase>().EndDialogueEvent();
+                    }
+                    else
+                    {
+                        StopAllCoroutines();
+                        typing = false;
+                        _text.text = lines[lineIndex];
+                        OptionNo();
+                    }
                 }
             }
             else
@@ -105,7 +115,10 @@ public class DialogueScript : MonoBehaviour
 
     public void OptionNo()
     {
-        interact.OptionNo();
+        if(interact != null)
+        {
+            interact.OptionNo();
+        }
         optionBox.SetActive(false);
         boxAnim.Play("TextBoxDown");
         _text.text = string.Empty;

@@ -155,9 +155,17 @@ public class POVCamScripts : MonoBehaviour
                 obj = hit.transform.gameObject.GetComponent<ObjectBase>();
                 return true;
             }
-            else return false;
+            else
+            {
+                obj = null;
+                return false; 
+            }
         }
-        else return false;
+        else
+        {
+            obj = null;
+            return false;
+        }
     }
 
     private IEnumerator TakePicture()
@@ -184,6 +192,6 @@ public class POVCamScripts : MonoBehaviour
 
     private void RecordPicture()
     {
-
+        album.curPicture.GetComponent<PictureData>().lines = obj.lines;
     }
 }

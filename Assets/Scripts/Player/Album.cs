@@ -5,11 +5,19 @@ using UnityEngine.UI;
 
 public class Album : MonoBehaviour
 {
+    public GameManager gameManager;
+    public DialogueScript dialogue;
     public List<GameObject> page = new List<GameObject>();
     public POVCamScripts povCam;
     public GameObject page1;
     public int curPage = 0;
 
+    public GameObject curPicture;
+
+    private void Start()
+    {
+        curPicture = page1;
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
@@ -41,6 +49,7 @@ public class Album : MonoBehaviour
             page[curPage].SetActive(false);
             curPage++;
             page[curPage].SetActive(true);
+            curPicture = page[curPage];
         }
     }
 
@@ -52,6 +61,28 @@ public class Album : MonoBehaviour
             page[curPage].SetActive(false);
             curPage--;
             page[curPage].SetActive(true);
+            curPicture = page[curPage];
         }
+    }
+
+    public void PictureDialogue()
+    {
+        //Get manager
+        //Get image data, insert data into npc lines
+        //play dialogue from npc 
+        //
+        dialogue.lines = curPicture.GetComponent<PictureData>().lines;
+        dialogue.DialogueInputs();
+        //Debug.Log("test");
+    }
+
+    public void PointerEnter()
+    {
+        curPicture.GetComponent<Animator>().Play("PictureHighlight");
+    }
+
+    public void PointerExit()
+    {
+        curPicture.GetComponent<Animator>().Play("PictureHighlightRev");
     }
 }

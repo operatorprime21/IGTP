@@ -23,6 +23,11 @@ public class NpcBase : InteractionBase
     // Update is called once per frame
     void Update()
     {
+        HeadLook();
+    }
+
+    private void HeadLook()
+    {
         Vector3 dir = (playerHead.transform.position - head.transform.position).normalized;
         float angle = Vector3.Angle(dir, this.transform.forward);
         float dist = Vector3.Distance(head.transform.position, playerHead.transform.position);

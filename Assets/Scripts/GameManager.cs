@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     public List<Flag> flags = new List<Flag>();
 
+    public enum Phase { start, objective}
+
+    public Phase phase;
+
     public void ToggleVisible(List<GameObject> on, List<GameObject> off)
     {
         foreach(GameObject obj in on)
