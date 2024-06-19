@@ -14,6 +14,7 @@ public class ObjectBase : InteractionBase
     {
         data = this.gameObject.GetComponent<Flag>();
         manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
+        parent = this.transform.parent.gameObject;
     }
     public override void EndDialogueEvent()
     {

@@ -11,7 +11,12 @@ public class Door : InteractionBase
     public GameObject pointTo;
 
     public GameObject player;
+    public Flag data;
 
+    private void Start()
+    {
+        data = this.gameObject.GetComponent<Flag>();
+    }
     public override void Interact()
     {
         base.Interact();
@@ -25,5 +30,6 @@ public class Door : InteractionBase
 
         manager = GameObject.Find("InteractHitbox").GetComponent<InteractManager>();
         manager.interactWith = null;
+        manager.manager.ProgressFlag(data);
     }
 }
