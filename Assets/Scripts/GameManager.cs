@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public List<LoopData> loops = new List<LoopData>();
     public LoopData curLoop;
+    public List<EnvironmentData> envData = new List<EnvironmentData>();
 
     public int flagIndex;
     public NpcBase npc;
@@ -37,13 +38,24 @@ public class GameManager : MonoBehaviour
             Debug.Log("Flag success: " + flagIndex + " " + curLoop.flags[flagIndex].ToString());
             flag.used = true;
             flagIndex++;
-            Debug.Log("New flag: " + flagIndex + " " + curLoop.flags[flagIndex].ToString());
+            //Debug.Log("New flag: " + flagIndex + " " + curLoop.flags[flagIndex].ToString());
             foreach(NpcData npcData in curLoop.npcData)
             {
                 if(flagIndex == npcData.flagIndex)
-                {;
+                {
                     SetNPC(npcData.transform, npcData.lines, npcData.npcState);
                     break;
+                }
+            }
+            foreach (EnvironmentData envData in envData)
+            {
+                if(envData.loopIndex == loops.IndexOf(curLoop))
+                {
+                    if (envData.flagIndex == flagIndex)
+                    {
+                        EditDoors(envData.doorsToClose, envData.doorsToOpen);
+                        break;
+                    }
                 }
             }
         }
@@ -55,5 +67,17 @@ public class GameManager : MonoBehaviour
         npc.gameObject.transform.rotation = transform.rotation;
         npc.lines = lines;
         npc.state = state;
+    }
+
+    public void EditDoors(List<Door> doorToDisable, List<Door> doorToEnable)
+    {
+        foreach(Door door in doorToDisable)
+        {
+            door.gameObject.SetActive(false);
+        }
+        foreach (Door door in doorToEnable)
+        {
+            door.gameObject.SetActive(true);
+        }
     }
 }

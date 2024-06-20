@@ -33,6 +33,7 @@ public class ObjectBase : InteractionBase
     {
         parent.SetActive(false);
         manager.manager.ProgressFlag(data);
+        manager.interactWith = null;
     }
 
     public override void OptionNo()
