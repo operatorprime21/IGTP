@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flags:
   - conversation 1
-  - conversation 2
   - pick up camera
   - random picture
   - random picture
