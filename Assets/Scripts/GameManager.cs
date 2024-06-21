@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         if(flag.flag == curLoop.flags[flagIndex] && flag.used == false)
         {
-            Debug.Log("Flag success: " + flagIndex + " " + curLoop.flags[flagIndex].ToString());
+            //Debug.Log("Flag success: " + flagIndex + " " + curLoop.flags[flagIndex].ToString());
             flag.used = true;
             flagIndex++;
             //Debug.Log("New flag: " + flagIndex + " " + curLoop.flags[flagIndex].ToString());
